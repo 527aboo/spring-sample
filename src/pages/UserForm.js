@@ -30,8 +30,13 @@ const UserForm = () => {
   const updateUser = async () => {
     const url = `${process.env.REACT_APP_USER_URL}/${user.id}`
     setIsLoading(true);
+    
     try {
-      const response = await axios.put(url, user)
+      const updatedUser = {
+        ...user,
+        updatedAt: new Date().toISOString()
+      }
+      const response = await axios.put(url, updatedUser)
       setStatus(response.status);
       setTimeout(() => {
         navigate('/user');
