@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 
 const UserList = () => {
 
@@ -61,7 +62,7 @@ const UserList = () => {
                             <td className="px-6 py-4">{user.lastName}</td>
                             <td className="px-6 py-4">{user.birthdate}</td>
                             <td className="px-6 py-4">
-                                <button onClick={() => searchUser(user.id)}>更新</button>
+                                <Link to={`/user/${user.id}`}>Edit</Link>
                             </td>
                         </tr>
                     ))}
